@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="gallery-wrapper">
+        <img src="images/back.png" id="back-btn" alt="" srcset="">
+        <div class="gallery">
+            <div>
+                <img src="images/image-1.png" alt="" srcset="">
+                <img src="images/image-2.png" alt="" srcset="">
+                <img src="images/image-3.png" alt="" srcset="">
+            </div>
+
+            <div>
+                <img src="images/image-4.png" alt="" srcset="">
+                <img src="images/image-5.png" alt="" srcset="">
+                <img src="images/image-6.png" alt="" srcset="">
+            </div>
+        </div>
+        <img src="images/next.png" id="next-btn" alt="" srcset="">
+    </div>
+</body>
+
+<script>
+    let gallery = document.querySelector(".gallery");
+    let back = document.getElementById("back-btn");
+    let next = document.getElementById("next-btn");
+
+    gallery.addEventListener("wheel",(evt)=>{
+        evt.preventDefault();
+        // when mouse wheel scrolling gallery scroll left incremently 
+         gallery.scrollLeft += evt.deltaY;
+    })
+
+    back.addEventListener("click" ,()=>{
+        gallery.style.scrollBehavior = "smooth";
+         gallery.scrollLeft -= 900;
+    })
+
+    next.addEventListener("click",()=>{
+        gallery.style.scrollBehavior = "smooth";
+        gallery.scrollLeft += 900;
+    })
+</script>
+</html>
